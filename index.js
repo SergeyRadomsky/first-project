@@ -228,18 +228,389 @@ while (numbwer <= 100 || !numbwer) {
  } while (num <= 100 && num); */
 
 // 2.14 (6)
-let n = 10
+// let n = 10
 /* while (i < n && (n % i == 0)) {
   i++
   console.log(i)
-} */
+} 
 label:
 for (let i = 2; i < n; i++) {
   for (let j = 2; j < i; j++) {
+    console.log(j)
+    // console.log(i)
     if (i % j == 0) continue label
   }
-  console.log(i)
 }
+*/
+
+// 2.14 (1) SWITCH
+/* let browser = prompt('rtnrt','')
+if (browser === 'Edge') alert('Edge')
+else if ("Crome" || "firefox" || "safari" || "opera") alert('another')
+else alert('hope page good')
+ */
+
+// 2.14 (2) SWITCH
+/* let number = +prompt('input a number',"")
+switch(number) {
+  case 0:
+    alert("0")
+
+  case 1:
+    alert('1')
+
+  case 2:
+  case 3:
+    alert('2 or 3');
+} */
+
+// 2.15 (1) FUNCTION
+/* function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Родители разрешили?');
+  }
+} */
+/* 
+function checkAge(age) {
+return age > 18 ? true : confirm("accecs?")
+}
+checkAge(1) 
+  return (age > 18) ||  console.log(false)
+}
+checkAge(19)  */
+
+// 2.15 (2)
+// function min(a, b) {
+  // if (a < b) return a
+  // else return b
+  // another
+  // return a < b ? a : b
+// }
+// console.log(min(2,5))
+
+// 2.15 (3)
+/* function pow(x , n) {
+  if (n >= 1) {
+  return x ** n
+  }
+  false
+}
+console.log(pow(2,3)) */
+
+// 2.16 (1) FUNCTION EXPRESSION
+
+// 2.17 (1)
+/* function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "Вы согласны?",
+  function() { alert("Вы согласились."); },
+  function() { alert("Вы отменили выполнение."); }
+); */
+
+/*  let ask = (question, yes, no) => {
+  if (confirm(question)) {
+    yes()
+  } else no()
+ }
+
+ ask("yes or no",
+ function() {console.log("yes")},
+ function() {console.log("no")},
+ ) */
+
+// 2.18 ()
+/* 
+ + Введение 1.1-1.4 <- прочитать в ознакомительном порядке
+ + Основы JavaScript 2.1-2.3 <- прочитать в ознакомительном порядке
+ + Основы JavaScript 2.4-2.18 <- изучить
+ + Качество кода 3.1-3.6 <- прочитать в ознакомительном порядке
+ + Объекты: основы 4.1-4.6 <- изучить
+ Объекты: основы 4.7-4.8 <- прочитать в ознакомительном порядке
+ Типы данных 5.1-5.6 <- изучить
+ Типы данных 5.7-5.8 <- прочитать в ознакомительном порядке
+ Типы данных 5.9-5.12 <- изучить
+ Продвинутая работа с функциями 6.1-6.11 <- изучить
+ Свойства объекта, их конфигурация 7.1-7.2 <- прочитать в ознакомительном порядке
+ Прототипы, наследование 8.1-8.4 <- прочитать в ознакомительном порядке
+ Классы 9.1-9.7 <- изучить
+ Обработка ошибок 10.1-10.2 <- изучить
+ Промисы, async/await 11.1-11.8 <- изучить
+ Генераторы, продвинутая итерация 12.1-12.2 <- прочитать в ознакомительном порядке
+ Модули 13.1-13.3 <- изучить
+ Разное 14.1-14.6 <- прочитать в ознакомительном порядке */
+
+
+// 4.1 (1) OBJECTS
+/* let user = {}
+user.name = "John"
+user.surname = "Smith"
+console.log(user)
+user.name = "Pete"
+console.log(user)
+delete user.name
+console.log(user) */
+
+// 4.1 (2)
+/* let isEmpty = function(obj) {
+  if (let value in obj) {
+    console.log(false)
+  }
+  else true
+}
+ */
+
+// 4.1 (3)
+/* const user = {
+  name: "John"
+};
+
+// это будет работать?
+user.name = "Pete"; //да, изменение свойства обекта-перменной а не самой переменной
+ */
+
+// 4.1 (4)
+/* let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130,
+}
+let sum = 0
+function isEmpty(obj) {
+  for (let keys in obj) {
+      sum += obj[keys]
+  }
+  console.log(sum)
+}
+isEmpty(salaries) */
+
+// 4.1 (5)
+/* let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+function multiplyNumeric(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] == "number") {
+      obj[key] *= 2
+    }
+    console.log(obj[key])
+  }
+}
+multiplyNumeric(menu) */
+
+// 4.4 (1) THIS
+/* function makeUser() {
+  return {
+    name: "John",
+    ref: this,
+  };
+}
+let user = makeUser();
+alert( user.ref.name ); */
+
+// 4.4 (2)
+/* let calculator = {
+  read() {
+    this.a = +prompt("num a", 0)
+    this.b = +prompt("num b", 0)
+  },
+  sum() {
+    return this.a + this.b
+  },
+  mul() {
+    return this.a * this.b
+  },
+}
+calculator.read();
+console.log(calculator.sum());
+console.log(calculator.mul()); */
+
+// 4.4 (3)
+/* let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function() { // показывает текущую ступеньку
+    alert( this.step );
+    return this;
+  }
+};
+ladder.up().up().down().showStep().down().showStep(); */
+/* чтобы так работать с методами,
+они должны возвращать что-то с чем можно работать. Возвращать каждый раз наш объект
+поле его обновления
+ */
+
+// 4.5 (1) конструктор NEW
+/* Функция начинается со слова new */
+/* обычно модифицирует this */
+/* возвращает значение this */
+/* именуются с большой буквы */
+/* следует вызывать только с помощью new, 
+   тогда this пустой в начале и заполненый в конце */
+
+/* let c = {}
+   function A() { return c }
+   function B() { return c }
+   
+   let a = new A();
+   let b = new B();
+   
+   alert( a == b ); // true? сработало только с объектом 
+ */
+
+// 4.5 (2)
+
+/* function Calculator() {
+
+  this.read = function() {
+    this.a = +prompt("a?", 0);
+    this.b = +prompt("b?", 0);
+  },
+
+  this.sum = function() {
+    return this.a + this.b
+    console.log(this)
+  },
+
+  this.mul = function() {
+    return this.a * this.b
+  }
+}
+
+let calculator = new Calculator();
+calculator.read();
+console.log(calculator.sum());
+console.log(calculator.mul()); */
+
+// 4.5 (3)
+/* function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = function() {
+    this.value += +(prompt("new value",0));
+  };
+}
+
+let accumulator = new Accumulator(1) 
+  accumulator.read();
+  accumulator.read();
+  accumulator.read();
+  alert(accumulator.value); */
+/* 
+  function Accumulator(startingValue) {
+    this.value = startingValue;
+  
+    this.read = function() {
+      this.value += +prompt('Сколько нужно добавить?', 0);
+    };
+  }
+  
+  let accumulator = new Accumulator(1);
+  accumulator.read();
+  accumulator.read();
+  alert(accumulator.value); */
+
+// 4.6 (1) опциональная цепочка
+/* let user = {
+  w: {
+    qwe: 5,
+    ewq: 9,
+  },
+  a: null,
+  b: 3,
+}
+
+console.log(user.a?.wasd)
+ */
+
+// 5.1 (1) МЕТОДЫ ПРИМИТИВОВ
+// существует 7 примитивным типов:
+//  symbol, string, number,
+//  boolean, null, undefined, bigint
+// они не хранят доп. навешанные свойства,
+// только испзользуют доступные им методы
+
+// ЧИСЛА
+// 1e-3 or 3 - укорачивает запись 0.002 or 2000
+// 123456..toString(2);  - перевод числа в двоичную систему счисления
+// Различные математические методы:
+  // Math.floor - окгругление в меньшую
+  // Math.ceil - округление в большую 
+  // Math.round - до ближайшего целого 
+  // Math.trunc - удаление дробной, без округления
+  // toFixed(1) - округление числа до 1 знака после запятой (строка как итог)
+  // пустая строка это 0 для всех числовых функций
+  // parseInt/parseFloat - поиск в строке целых/дробных значение но если спереди
+  // буква то не прочитает(a123)
+  // random
+  // pow(2, 10) - 2 в 10 степени
+  // max,min
+
+// 5.2 (1) 
+/* let a = +prompt("введите число", "");
+let b = +prompt("введите число", "");
+alert((a + b)) */
+
+//5.2 (2)
+// alert( 1.35.toFixed(1) ); // 1.4
+// alert( 6.35.toFixed(1) ); // 6.3
+// alert(Math.round(6.35 * 10 / 10))
+
+// 5.2 (3)
+/* Function ReadNumber() {...}
+let funcT = NEW ReadNumber() {
+  let number
+  do {
+  number = +prompt("input value", "")
+  } while (!isFinite(number))
+  if (number === null || number === '') return null;
+  console.log(number)
+}
+readNumber() */
+
+
+// 5.2 (4)
+// Значение i не будет равно ровно 10 из-за неточностей JS
+
+//5.2 (5)
+/* function random(a, b) {
+
+} */
+// console.log("A" > "B")
+
+// VAR  не видно если он используется в функции.................
+
+
+// for(let i = 0; i < 10; i++) setTimeout(() => console.log(i), 1000)
+// for(var i = 0; i < 10; i++) console.log(i)
+
+let num = {"a": 1}
+let q = num
+// q = {"a": 2}
+q.a = 3
+console.log(q)
+
+console.log(num)
+// q = num
+console.log(q === num)
+
+
+
 
 
 
