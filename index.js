@@ -587,27 +587,475 @@ readNumber() */
 // 5.2 (4)
 // Значение i не будет равно ровно 10 из-за неточностей JS
 
-//5.2 (5)
-/* function random(a, b) {
+//5.2 (5-6)
+/* let randomNumber = function random(min, max) {
+  let numFloat = Math.random()
+  function addFive(numFloat) {
+  }
+  return(Math.trunc(numFloat * 100 / 20))
+}
+console.log(randomNumber(min, max)) */
 
-} */
-// console.log("A" > "B")
 
 // VAR  не видно если он используется в функции.................
 
-
+// ???
+// for(let i = 0; i < 10; i++) setTimeout(() => console.log(i), 1000)
 // for(let i = 0; i < 10; i++) setTimeout(() => console.log(i), 1000)
 // for(var i = 0; i < 10; i++) console.log(i)
 
-let num = {"a": 1}
-let q = num
-// q = {"a": 2}
-q.a = 3
-console.log(q)
+// 5.3 (1) СТРОКИ
+/* let a = function ucFirst(str) {
+  
+  let a = str[0].toUpperCase() + str.slice(1)
+  return(a)
+}
+console.log(a("вася")) */
 
-console.log(num)
-// q = num
-console.log(q === num)
+// 5.3 (2)
+/* function checkAge(str) {
+  let lowerCase = str.toLowerCase();
+  // return lowerCase = str.includes('viagra') || str.includes('xxx')
+  return lowerCase = str.
+}
+ */
+
+// 5.3 (3)
+
+/* function truncate(str, maxlength) {
+  return str.length > maxlength ? (str.slice(0, maxlength - 1) + "...") : (str)  
+}
+
+console.log( truncate("Вот, что мне хотелось бы сказать на эту тему:", 2)
+); */
+
+// 5.3 (4)
+/*
+function extractCurrencyValue(str) {
+  return(str.slice(1))
+}
+console.log(extractCurrencyValue("$124124")); */
+
+
+
+// 5.4 МАССИВЫ
+/* let arr = new Array();
+let arrr = [1,2,{name: "qwerty", age: 29}, function r(){console.log("hello");}];
+ */// alert(arrr[3]())
+// alert(arrr.at(2))
+
+// Массив это объект, копируется по ссылке
+// доп.методы упорядоченная коллекция 
+
+// push добавляет элемент в конец строки
+// unshift добавляет элемент в начало массива
+// могут добавлять сразу несколько
+
+// pop удалят последний элемент
+// shift удаление первого элемента и сдвиг
+
+// 5.4 (1)
+/* let styles = ["Джаз", "Блюз"]
+styles.push("Рок-н-ролл")
+function findCenter() {
+  styles[Math.round((styles.length - 1)/ 2)] = "Классика"
+}
+findCenter()
+console.log(styles); */
+
+// 5.4 (2)
+// Контекст THIS массива это он сам как объект. 
+// выведет все его элементы
+
+// 5.4 (3)
+/* let arr = []
+function sunInput() {
+  let a = prompt("new el for arr" , "")
+  if (typeof(a) === "number") {
+    arr.push(a)
+    sunInput()
+  } else (typeof(a) != "number" || a === null || a == '') break;}
+    let sum = 0;
+  for (let key of arr) {
+    sum += key
+  }
+  return sum
+}
+alert(sunInput())
+ */
+/* function sumInput() {
+let arr = []
+while (1) {
+  let el = +prompt("Input new elements for arr","0") 
+    if (typeof(el) != "number" || el === null || el == '') {
+      break;
+    } 
+    arr.push(el)
+  }
+    let sum = 0
+    for (let key of arr) {
+      sum += key
+    }
+    return sum
+}
+alert(sumInput()) */
+
+// 5.4 (4)
+/* function getMaxSubSum(arr) {
+  let sum = 0
+  let maxSum = 0
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i] == (arr[i+1]-1)) || !(arr[i+1])) {
+      console.log(`arr = ${arr[i]}`);
+      sum += arr[i]
+      console.log(`sum = ${sum}`);
+      if(sum > maxSum) {
+        maxSum = sum
+      }
+    }
+    else if ((arr[i] != (arr[i+1]-1)) ) {
+      sum = arr[i]
+      console.log(`sum = ${sum}`);
+      console.log(`arr = ${arr[i]}`);
+    }
+    return maxSum;
+  }
+}
+console.log(getMaxSubSum([1, 2, 3, 1, 2, -1])); */
+
+
+/* function getMaxSubSum(arr) {
+  let maxsum = 0
+  let sum = 0
+  for (let item in arr) {
+    sum += arr[item]                        // почему здесь не срабатыват = item
+    maxsum = Math.max(maxsum, sum)
+    if (sum < 0) sum = 0
+  }
+  return maxsum
+}
+console.log(getMaxSubSum([-1, 2, 3, -9]) ); //5
+console.log(getMaxSubSum([-1, 2, 3, -9, 11]) ); //11
+console.log(getMaxSubSum([-2, -1, 1, 2]) ); //3
+console.log(getMaxSubSum([-1, -2, -3]) ); //0 */
+
+// 5.5 МЕТОДЫ МАССИВОВ
+
+/* splice - добавляет, удаляет, заменяет
+  СИНТАКСИС 
+  
+    удаление: arr.splice(1,1) удалить с 1 элемента 1 элемент
+
+    вставить: arr.splice(1, 0 , "буква") вставить со 2 позиции, 
+      ничего не удаляя(0), элемент = "буква"
+    
+    заменить: arr.splice(1,1, "буква") c элемента 1, удалить 1, вставить заместо
+      него элемент = "буква"
+ */
+
+/* slice - возвращает новый массив где скопировал из старого (1, 3) 
+    с 1 по 3 элемент
+    если (1) 1 аргумент, то в новый массив с 1 по последний
+ */
+
+/* concat - создает новый, в который копирует или добавляет 
+    другие массивы и элменты
+
+    // создать массив из: arr и [3,4]
+alert( arr.concat([3, 4]) ); // 1,2,3,4
+
+// создать массив из: arr и [3,4] и [5,6]
+alert( arr.concat([3, 4], [5, 6]) ); // 1,2,3,4,5,6
+
+// создать массив из: arr и [3,4], потом добавить значения 5 и 6
+alert( arr.concat([3, 4], 5, 6) ); // 1,2,3,4,5,6
+ */
+
+/* Функция forEach(item, index, arr ) - создает функцию для каждого элемента массива
+ */
+
+/* методы поиска в массиве
+
+    arr.indexOf(item, from) ищет item, начиная с 
+        индекса from, и возвращает индекс, на котором был найден искомый 
+        элемент, в противном случае -1.
+    
+    arr.lastIndexOf(item, from) – то же самое, но ищет справа налево.
+
+    arr.includes(item, from) – ищет item, начиная с индекса from, и
+        возвращает true, если поиск успешен.
+ */
+
+
+/* функция find(f(item, index, array) {...}
+      возвращает 1 элемент для которого функция сработала как true
+ */
+
+/* функция filter(f(item, index, array) {...}
+      Возвращает массив для которого, верно сработала функция
+ */
+
+/* Метод map(f(it, ind, arr)) {...}
+      создает новый массив из элементов к которым применилась функция
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*       [1, -2, 15, 2, 0, 8].sort(function(a, b) {
+        alert( a + " <> " + b );
+        return a - b;
+      }); */
+
+
+      // function compareNumeric(a, b) {
+      //   if (a > b)
+      //    return 1;
+
+      //   if (a == b)
+      //   return 0;
+
+      //   if (a < b)
+      //   return -1;
+      // }
+      
+      // let arr = [ 1, 2, 15,4 ];
+      
+      // arr.sort(compareNumeric);
+      
+      // alert(arr);  
+      
+      // 1, 2, 15
+       /* есть массив arr = [ 1, 2, 15 ];
+        он сортируется функцией сompareNumeric
+        которая получает 2 КАКИХ аргумента?
+        если первый > b 
+        не понимаю как элементы массива подставляются под a, b
+       */
+
+
+
+/*reduce/reduceRight
+  проходит по массиву, запоминает значение от предыдущего действия,
+  и продолжает работу уже с ним
+
+
+синтаксис?
+
+let value = arr.reduce(function(accumulator, item, index, array) {
+  // ...
+}, [initial]);
+
+let arr = [1, 2, 3, 4, 5];
+let result = arr.reduce((sum, current) => sum + current, 0);
+alert(result); // 15
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// arr.reverse() меняет порядок элементов arr на обратный
+
+
+// split - разбивает полученную строку на массив элементов по разделителю
+// arr.split(", ") где разделитель запятая с пробелом удаляется
+
+
+// join - слепляет массив в строку где запятая с пробелом добавляются
+// arr.join(", ")
+
+//
+
+
+// Array.isArray(arr) //true или false
+
+
+
+
+
+
+/* let neww
+  neww = str.map((elem) => {
+    elem[0].toUpperCase() + str.slice(1);
+    return neww
+  })
+  str = neww
+  return str */
+// 5.5 (1)
+/* function camelize(str) {
+  str = (str.split('-'))
+  let word
+    word = str.forEach(word => {
+      word.toUpperCase()
+    });
+  
+  return str
+}
+*/
+// console.log(camelize("list-style-image")) 
+
+/* function camelize(str) {
+  return str.split('-').map(
+    function(word, index) {return index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    })
+    .join('');  
+
+     return str.split("-").map((word, index) => { 
+      index === 0 ? word :
+      word[0].toUpperCase() + word.slice(1)
+
+      return word;
+    }).join('') 
+  }
+  console.log(camelize("list-style-image"))   */
+  
+// 5.5 (2)
+/* let arr = [5, 3, 8, 1];
+
+
+function filterRange(arr, a, b) {
+  return arr.filter((items) => (items >= a) && (items <= b))
+}
+console.log(filterRange([1,2,3,4,5,6,7], 2, 5)); */
+
+//5.5 (3)
+/* function filterRangeInPlace(arr, a, b) {
+
+  for (let i = 0; i < arr.length; i++) {
+    let val = arr[i]
+  
+    if (val < a || val > b) {
+      arr.splice(i, 1)
+      i--
+    }
+  }
+}
+let arr = [5,3,8,1] // больше всего мучался, arr должна быть объявлена вне функции
+//  чтобы сработал console.log
+filterRangeInPlace(arr, 1, 4);
+console.log(arr); */
+
+// 5.5 (4)
+/* let arr = [5, 2, 1, -10, 8];
+
+/* arr.sort((a,b) => b - a)
+ console.log(arr); 
+
+
+
+function decrease(arr) {
+  return arr.sort(function(a, b) {
+    return b - a
+  })
+}
+console.log(decrease(arr)); */
+
+
+/*{   for (let i = 0; i < arr.length; i++) {
+    let elem = 0
+    if (arr[i] > elem) {
+      elem = arr[i]
+    }
+  }
+ } */
+// decrease(arr)
+// console.log(decrease(arr)); // 8, 5, 2, 1, -10
+
+
+/* let arr = [1,2,3,4,5,6]
+let arr2 = arr.filter(a => a>2)
+console.log(arr2) */
+
+/* let n = "hello"
+let q = n.slice(2,4)
+console.log(q); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
