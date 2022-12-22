@@ -1008,6 +1008,296 @@ console.log(arr2) */
 let q = n.slice(2,4)
 console.log(q); */
 
+// 5.6 ПЕРЕБИРАЕМЫЕ ОБЪЕКТЫ
+// Symbol Iterator
+
+// 5.7 MAP И SET
+/*
+map это коллекция ключ значение
+может использовать объект как ключ
+если объект как ключ, его защищает от удаления
+map.keys() – возвращает итерируемый объект по ключам,
+map.values() – возвращает итерируемый объект по значениям,
+map.entries() – возвращает итерируемый объект по парам вида [ключ, значение], этот вариант используется по умолчанию в for..of.
+
+Set – коллекция уникальных значений, так называемое «множество»
+ */
+
+
+
+// 5.9 Object.keys, values, entries
+
+/* Object.keys(obj) возвращает массив ключей
+Object.values(obj) возвращает массив значений
+Object.entries(obj) возвращает массив пар ["ключ","значение"]
+ */
+/* let obj = {
+  name: "John",
+  age: 30,
+}
+console.log(Object.entries(obj));
+console.log(Object.fromEntries(Object.entries(obj)));
+console.log(Object.keys(obj)); */
+
+// 5.9 (1)
+/*  let sal = {}
+let salaries = {
+  "john": 100,
+  "Ann": 150,
+  "Vital": 300,
+  "Oleg": 200,
+}
+const sumSalaries = (salaries) => {
+  let sum = 0
+  for(let a of Object.values(salaries)){
+  sum += a  
+  }
+  console.log(sum);
+}
+sumSalaries(salaries) */
+//два решения одно через => 
+/*
+function sumSalaries(salaries) {
+  if (Object.keys(salaries).length == 0) {
+  console.log(0)
+  }
+  else {
+    let sum = 0
+    for(let name of Object.values(salaries)) {
+    sum = sum + name
+  }
+  console.log(sum);
+  }
+}
+sumSalaries(salaries)
+ */
+//  sal = Object.fromEntries(Object.entries(salaries).reduce(([key, el],[key, el2]) => [key, el + el2]))
+
+// 5.9 (2)
+/* let user = {
+  name: 'John',
+  age: 30,
+  agew: 30,
+  ageq: 30,
+};
+
+const count = (obj) =>
+  Object.keys(obj).length
+console.log(count(user));
+
+const count = (obj) =>
+  Object.entries(obj).length
+console.log(count(user));
+ */
+
+// 5.10 ДЕСТРУКТУИРУЮЩЕЕ ПРИСВАИВАНИЕ
+// это просто копирование и присвоение
+
+          //  синтаксис для функции :
+          /* function({
+            incomingProperty: varName = defaultValue
+            ...
+          }) 
+          
+          //  синтаксис для объекта :
+            let {prop : varName = default, ...rest} = object
+
+          // синтаксис для массива :
+            let [item1 = default, item2, ...rest] = array
+          */
+
+// let arr = ["Ilya", "Kantor"];
+
+// let [firstName, surname] = arr;            эта строка равна двум нижним
+
+// и surname = arr[1]
+// записывает firstName = arr[0]
+
+
+
+// 5.10 (1)
+//  let user = {
+  // name: "John",
+  // years: 30
+// };
+
+// let {name, years:age, isAdmin:isAdmin = false} = user
+// console.log(name);
+// console.log(age);
+// console.log(isAdmin);  
+
+
+// 1
+/* let name = user.name
+console.log(name);
+// 2
+let age = user.years
+console.log(age);
+// 3
+let isAdmin = user.isAdmin = false
+console.log(isAdmin); */
+
+// 5.10 (2)
+/* let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mavfry": 2580,
+  "Marey": 2150,
+  "Margy": 2350,
+  "Marys": 2850,
+  "Marya": 3250,
+};
+
+let {John: newJohn = false, Pete: name2, ...qwe} = salaries
+console.log(newJohn);
+let {Mavfry: q, ...er} = qwe
+console.log(q);
+console.log(a); */
+
+/* 
+let topSalarry = () => {
+  let max = 0
+  let maxName = null
+  for (const [name, salary] of Object.entries(salaries)) {
+    if (max <= salary) {
+      max = salary
+      maxName = name
+    }
+  }
+  console.log(`${max} and ${maxName}`)
+}
+topSalarry(salaries) */
+
+
+/* let topSalarry = () => {
+  if (Object.keys(salaries).length == 0) {
+    console.log(0);
+  } else if () {
+    
+  }
+  } */
+
+
+// 5.11 ОБЪЕКТ Date
+/* let date = new Date() // эквивалентно Date.now()
+console.log(date);
+console.log(date.getFullYear());  //год
+console.log(date.getMonth());     //месяц
+console.log(date.getDate());      //день месяца
+console.log(date.getDay());       //день недели
+console.log(date.getTime());       //день недели
+console.log(date.getTimezoneOffset() / 60 * -1);       //день недели
+console.log(Date.now());
+// console.log(date);
+let a = 2300-20-4
+console.log(new Date(Date.parse(a))) */
+//бенмарки замер производительности
+
+//5.11 (1)
+/* let a = new Date("2012-2-1 12:12:12")
+console.log(a); */
+
+// 5.11 (2)
+/* let date = new Date(2014, 0, 3)
+let getWeekDay = (date) => {
+  let days = ["0", "1", "2", "3", "4", "5", "6", "7"]
+  return days[date.getDay()];
+}
+console.log(getWeekDay(date)) */
+
+// 5.11 (3)
+/* let date = new Date(2014, 0, 3)
+
+let getWeekDay = (date) => {
+  let days = ["0", "1", "2", "3", "4", "5", "6", "7"]
+  return days[date.getDay()];
+}
+console.log(getWeekDay(date)-1) */
+
+// 5.11 (4)
+/* let date = new Date()
+// let days = 0
+let getDateAgo = (date, days) => {
+  date.setDate(date.getDate() - days)
+  return date.getDate()
+}
+console.log(getDateAgo(date, 2)); */
+
+// 5.11 (5)
+/* const getLastDayOfMonth = (year, month) => {
+  let date = new Date()
+
+  console.log(date);
+}
+getLastDayOfMonth(2012,1) // 29 */
+
+
+//6.1 РЕКУРСИЯ
+
+
+/* function pow(x, n) {
+  if (n === 1) {
+    return x;
+  } else {
+    console.log(`${x} this is x`);
+    console.log(`${n} this is n`);
+    return x * pow(x, n - 1);
+  }
+}
+
+console.log( pow(3, 6) ); // 8 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+symbol.Iterator
+map
+set
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
