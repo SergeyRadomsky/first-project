@@ -1569,11 +1569,46 @@ printNumbers(1 ,9)
 // func.apply - устанавливает первый аргумент как равный this
 // служит если функция вызывается в контексте объекта, вторым агументов принмимает маассив
 
+// 6.9 (1)
+
+/* spy = (func) => {
+  wrapper = (...arg) => {
+    wrapper.calls.push(arg)
+    return func.apply(this, arg)
+  }
+  wrapper.calls = []
+  return wrapper
+} */
 
 
+// 6.9 (2)
 
+function delay(func, time) { 
+  console.log(func);
+  console.log(time);
+  return function() {
+    setTimeout(() => func.apply(this, arguments), time)
+    console.log(func);
+    console.log(time);  
+  }
+}
+// создаём обёртки
+let f1000 = delay(console.log, 1000);
+let f1500 = delay(alert, 1500);
 
+f1000(["test", "test", "test", "test", "test"]); // показывает "test" после 1000 мс
+f1500("test"); // показывает "test" после 1500 мс
 
+/* function delay(func, time) { 
+  let param
+    setTimeout(param = function() {func.apply(this, arguments)}, time)
+  }
+// создаём обёртки
+let f1000 = delay(alert, 1000);
+let f1500 = delay(alert, 1500);
+
+f1000("test"); // показывает "test" после 1000 мс
+f1500("test"); // показывает "test" после 1500 мс */
 
 
 
