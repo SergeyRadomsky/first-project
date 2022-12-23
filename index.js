@@ -1255,6 +1255,338 @@ console.log( pow(3, 6) ); // 8 */
 
 
 
+// 6.3 ЗАМЫКАНИЯ 
+
+// 
+/* let naqme = "John";
+
+
+naqme = "Pete";
+
+
+let sayHi =() => alert("Hi, " + naqme);
+
+
+sayHi(); */
+
+/* function makeWorker() {
+  let name = "Pete";
+
+  return function() {
+    alert(name);
+  };
+}
+
+let name = "John";
+
+// create a function
+let work = makeWorker();
+
+// call it
+work(); // */
+
+
+/* function makeCounter() {
+
+  let count = 0;
+
+  console.log("внешняя count  для функции");
+  console.log(count);
+
+  return () => {
+    count++
+    console.log("внутренняя count для функции");
+    console.log(count)
+    return count
+  };
+
+
+}
+
+let counter1 = makeCounter();
+counter1()
+counter1()
+counter1()
+counter1()
+console.log("count2");
+let counter2 = makeCounter();
+counter2() */
+
+/* let value = "Сюрприз!";
+
+function f() {
+  let value = "ближайшее значение";
+
+  function g() {
+    return value
+  }
+
+  console.log(value)
+}
+// последнеее размышление области видимости + замыкания
+let g = f();
+g(); */
+
+/* function func1(a) {
+
+  function func12(b) {
+    console.log(a + b);
+  }
+
+  return func12;
+}
+
+let sumNum = func1(1);
+sumNum(2); */
+
+// 6.3 (1)
+// 0.1
+
+// 6.3 (2)
+
+/* function Counter() {
+  let count = 0;
+
+  this.up = function() {
+    return ++count;
+  };
+  this.down = function() {
+    return --count;
+  };
+}
+
+let counter = new Counter();
+
+console.log( counter.up() ); // ?
+console.log( counter.up() ); // ?
+console.log( counter.up() ); // ?
+console.log( counter ); // ? */
+
+// 6.3 (3)
+/* let phrase = "Hello";
+
+if (true) {
+  let user = "John";
+
+  function sayHi() {
+    alert(`${phrase}, ${user}`);
+  }
+  sayHi();
+} */
+
+// 6.3 (4)
+/* let funcA = (a) => {
+  let funcB = (b) => {
+    return (a + b)
+  }
+  return funcB
+}
+console.log(funcA(1)(2)); */
+
+// 6.3 (5) Фильтрация с помощью функции
+/* let arr = [1, 2, 3, 4, 5, 6, 7];
+
+ let inBetween = (a, b) => {
+    return (elem) => {return elem >= a && elem <= b
+    }
+  }
+// console.log(arr.filter(inBetween(1,5)));
+
+let inArray = (arr) => {
+  return (elem) => {
+    return arr.includes(elem)
+  }
+}
+console.log(arr.filter(inArray([1,5,3,8]))); */
+
+//6.3 (6) Сортировать по полю
+/* let users = [
+  { name: "John", age: 20, surname: "Johnson" },
+  { name: "Pete", age: 18, surname: "Peterson" },
+  { name: "Ann", age: 19, surname: "Hathaway" }
+]; */
+/* let byField = (nameElemOfObj) => {
+    return (a, b) => a[nameElemOfObj] > b[nameElemOfObj] ? 1 : -1
+}
+console.log(users.sort(byField('name'))) */
+// по имени (Ann, John, Pete)
+// users.sort((a, b) => a.name > b.name ? 1 : -1);
+// console.log(users.sort((a, b) => a.name > b.name ? 1 : -1));
+// console.log(users.sort((a, b) => a.age > b.age ? 1 : -1));
+// по возрасту (Pete, Ann, John)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//6.3 (7) army o shooters
+/* function makeArmy() {
+  let shooters = [];
+  let i = 0;
+
+  while (i < 10) {
+    // let j = i
+    let shooter = function() { // функция shooter
+      // return j
+      console.log(i); // должна выводить порядковый номер
+      return i
+    }();
+    shooters.push(shooter);
+    i++;
+  }
+
+  return shooters;
+}
+
+let army = makeArmy();
+console.log(makeArmy());
+console.log(army) */
+
+/* function makeArmy() {
+  let shooters = [];
+
+  let i = 0;
+  while (i < 10) {
+    let shooter = function() { // функция shooter
+    return i
+    }();
+    shooters.push(shooter);
+    i++;
+    console.log(i);
+  }
+
+  return shooters;
+}
+
+let army = makeArmy();
+// console.log(army)
+console.log('event', army[5]);  */// и у 5-го стрелка тоже будет номер 10
+// ... у всех стрелков будет номер 10, вместо 0, 1, 2, 3...
+// console.log( army[0]() )// у 0-го стрелка будет номер 10
+// console.log( army[1]() )// у 0-го стрелка будет номер 10
+// console.log( army[2]() )// у 0-го стрелка будет номер 10
+// console.log( army[3]() )// у 0-го стрелка будет номер 10
+
+
+// 6.6 named Function Expression
+
+/* let sayHi = function name() {
+  console.log("hello");
+  console.log(sayHi.name)
+}
+sayHi() */
+// name позволяет ссыльаться на себя же
+// ---
+// name не доступно за пределами функции
+
+// 6.6 (1) 
+// let counter = function makeCounter() {
+
+// }
+
+// 6.7 синтаксис New Function
+
+///6.8 Планирование: setTimeout и setInterval
+
+/* let printNumbers = (from, to) => {
+let current = from
+
+  setTimeout(function go() {
+    console.log(current);
+    if (current < to) {
+      setTimeout(go, 1000)
+    }
+    current++
+  }, 1000)
+}
+printNumbers(1 ,9)
+ */
+
+/* let timerId = setInterval(() => {
+
+    if (current < to) {
+      console.log(current);
+      current++
+    }
+    if (current == to) clearInterval(timerId)
+  }, 1000)
+} 
+printNumbers(1 ,9)
+*/
+
+
+// 6.9 Декораторы и переадресация вызова, call/apply
+// cachingDecorator - Оберточная функция которая добавляет основной кеширование
+
+// func.call - устанавливает первый аргумент как равный this
+// служит если функция вызывается в контексте объекта
+
+// func.apply - устанавливает первый аргумент как равный this
+// служит если функция вызывается в контексте объекта, вторым агументов принмимает маассив
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
