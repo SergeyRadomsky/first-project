@@ -1583,7 +1583,7 @@ printNumbers(1 ,9)
 
 // 6.9 (2)
 
-function delay(func, time) { 
+/* function delay(func, time) { 
   console.log(func);
   console.log(time);
   return function() {
@@ -1597,7 +1597,7 @@ let f1000 = delay(console.log, 1000);
 let f1500 = delay(alert, 1500);
 
 f1000(["test", "test", "test", "test", "test"]); // показывает "test" после 1000 мс
-f1500("test"); // показывает "test" после 1500 мс
+f1500("test"); // показывает "test" после 1500 мс */
 
 /* function delay(func, time) { 
   let param
@@ -1617,6 +1617,27 @@ f1500("test"); // показывает "test" после 1500 мс */
 
 
 
+/* let dictionary = Object.create(null, {
+  toString: { // определяем свойство toString
+    value() { // значение -- это функция
+      return Object.keys(this).join();
+    }
+  }
+});
+
+dictionary.apple = "Apple";
+dictionary.__proto__ = "test";
+
+// apple и __proto__ выведены в цикле
+/* for(let key in dictionary) {
+  console.log(key);} 
+
+
+console.log(Object.keys(dictionary));
+// ваш метод toString в действии
+console.log(dictionary); 
+console.log(typeof(dictionary));
+ */
 
 
 
@@ -1626,6 +1647,399 @@ f1500("test"); // показывает "test" после 1500 мс */
 
 
 
+
+
+
+
+
+/* class Animal {
+
+  constructor(name) {
+    this.name = name;
+  }
+
+}
+
+class Rabbit extends Animal {
+  constructor(name) {
+    super(name);
+    this.created = Date.now();
+  }
+}
+
+let rabbit = new Rabbit("Белый кролик"); // ошибки нет
+alert(rabbit.name); // White Rabbit */
+// const options = {template: 'h:m'}
+// const clock = new Clock(options);
+
+/* class Clock {
+  constructor(options) {
+    this.template = options.template;
+  }
+
+  render() {
+    let date = new Date();
+
+    let hours = date.getHours();
+    if (hours < 10) hours = '0' + hours;
+
+    let mins = date.getMinutes();
+    if (mins < 10) mins = '0' + mins;
+
+    let secs = date.getSeconds();
+    if (secs < 10) secs = '0' + secs;
+
+    let output = this.template
+      .replace('h', hours)
+      .replace('m', mins)
+      .replace('s', secs);
+
+    console.log(output);
+  }
+
+  stop() {
+    clearInterval(this.timer);
+  }
+
+  start() {
+    this.render();
+    this.timer = setInterval(() => this.render(), 1000);
+  }
+}
+
+
+class ExtendedClock extends Clock {
+  constructor(options) {
+    super(options)
+    let { precision = 1000 } = options
+    this.precision = precision
+  }
+
+  start() {
+    this.render()
+    this.timer = setInterval(() => this.render() , this.precision)
+  }
+  
+}
+
+
+const clock2 = new ExtendedClock({template: 'h:m', precision: 2000});
+clock2.start()
+
+
+console.log(clock2) */
+
+
+/* class CoffeeMachine {
+  _waterAmount = 0; // количество воды внутри
+  _waterLimit = 200;
+  
+  get _waterAmount() {
+    return this._waterAmount
+  }
+
+  set waterAmount(value) {
+    if (value < 0) throw new Error("Отрицательное значение воды")
+    this._waterAmount = value
+  }
+
+  get power() {
+    this.power = power;
+    alert( `Создана кофеварка, мощность: ${power}` );
+  }
+
+}
+
+// создаём кофеварку
+let coffeeMachine = new CoffeeMachine(100);
+
+// добавляем воды
+coffeeMachine.waterAmount = 210; */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   ЗАДАЧА 1
+let task1 = function(number, degree) {
+  if (degree == 1) {
+    return number
+  }
+  else  {
+    return  number * task1(number, degree - 1)
+  }
+} 
+
+
+console.log(task1(2,4))
+console.log(task1(4,2))  */
+
+/* // короткая запись
+ let task1 = function(a ,b) {
+  if (b == 1) return a
+  else return a * task1(a , b -1)
+}
+console.log(task1(2,2)) */
+
+// ЗАДАЧА 2
+/* let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+// console.log(typeof());
+
+let newArr = []
+let funcRecurs = arr.filter((element,i,arr) => {
+  if (typeof(element) === "number") {
+    newArr.push(element)
+  } else {
+    if (typeof(element) === "object") {
+      element.filter((element,i,arr) => {
+        if (typeof(element) === "number") {
+          newArr.push(element)
+        } else {
+          if (typeof(element) === "object") {
+            element.filter((element,i,arr) => {
+              if (typeof(element) === "number") {
+                newArr.push(element)
+              } else {
+                if (typeof(element) === "object") {
+                  element.filter((element,i,arr) => {
+                    if (typeof(element) === "number") {
+                      newArr.push(element)
+                    } else {
+                      if (typeof(element) === "object") {
+                        element.filter((element,i,arr) => {
+                          if (typeof(element) === "number") {
+                            newArr.push(element)
+                          } else {
+                            if (typeof(element) === "object") {
+                              return
+                              // element.funcRecurs
+                            }
+                          } 
+                        })
+                        // element.funcRecurs
+                      }
+                    } 
+                  })
+                  // element.funcRecurs
+                }
+              } 
+            })
+            // element.funcRecurs
+          }
+        } 
+      })
+      // element.funcRecurs
+    }
+  } 
+});
+console.log(...newArr);
+console.log(newArr);
+console.log(...arr);
+console.log(arr);
+
+*/
+
+
+
+/*  function reck() { (element) => {
+  if (typeof(element) === "number") {
+    newArr.push(element)
+  } else {
+    if (typeof(element) === "object") {
+      element.filter()
+      // element.funcRecurs
+    }
+  } 
+} 
+ } */
+
+
+/* let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+// console.log(typeof());
+
+let newArr = []
+let funcRecurs = arr.filter(function rec(element,i,arr) {
+  if (typeof(element) === "number") {
+    newArr.push(element)
+  } else {
+    if (typeof(element) === "object") {
+      element.filter()
+    }
+  }
+}) */
+
+
+
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+// ЗАДАЧА 2
+/* let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+// console.log(typeof());
+
+let newArr = []
+let funcRecurs = arr.filter((element) => {
+  if (typeof(element) === "number") {
+    newArr.push(element)
+  } else {
+    if (typeof(element) === "object") {
+      element.filter( reck())}}
+       })
+
+ function reck() { (element) => {
+  if (typeof(element) === "number") {
+    newArr.push(element)
+  } else {
+    if (typeof(element) === "object") {
+      element.filter()
+      // element.funcRecurs
+    }
+  } 
+} 
+ } */
+
+
+
+/*
+console.log(...newArr);
+console.log(newArr);
+console.log(...arr);
+console.log(arr); */
+
+
+
+
+
+
+
+
+
+
+
+ let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+// console.log(typeof());
+let newArr = []
+
+const arrr = (element) => {
+  if (typeof element === 'number') {
+    newArr.push(element)
+  } else {
+    for (let elem of element) {
+      arrr(elem)
+    }
+  }
+}
+
+for (let element of arr) {
+  arrr(element)
+};
+
+console.log(newArr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ЗАДАЧА 3
+/* let stringifyNumber = function(inputNumber) {
+  if (inputNumber < 0 || inputNumber > 100000) {
+    console.log("false");
+  }
+  else {
+    console.log(inputNumber)
+  }
+}
+
+stringifyNumber(2) */
 
 
 
@@ -1713,12 +2127,77 @@ set
 
 
 
+// let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+
+
+// let newARR = []
+// let funcRec = arr.filter((element) => {
+//   if (typeof(element) === "object") {
+//     funcRec()
+//   } else if (typeof(element) === "number") {
+//     newARR.push(element)
+//   }
+// })
+// funcRec(arr)
+// console.log(newARR);
 
 
 
+// ЗАДАЧА 2
+/*  let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+// console.log(typeof());
 
-
-
+let newArr = []
+let funcRecurs = arr.filter((element,i,arr) => {
+  if (typeof(element) === "number") {
+    newArr.push(element)
+  } else {
+    if (typeof(element) === "object") {
+      element.filter((element,i,arr) => {
+        if (typeof(element) === "number") {
+          newArr.push(element)
+        } else {
+          if (typeof(element) === "object") {
+            element.filter((element,i,arr) => {
+              if (typeof(element) === "number") {
+                newArr.push(element)
+              } else {
+                if (typeof(element) === "object") {
+                  element.filter((element,i,arr) => {
+                    if (typeof(element) === "number") {
+                      newArr.push(element)
+                    } else {
+                      if (typeof(element) === "object") {
+                        element.filter((element,i,arr) => {
+                          if (typeof(element) === "number") {
+                            newArr.push(element)
+                          } else {
+                            if (typeof(element) === "object") {
+                              return
+                              // element.funcRecurs
+                            }
+                          } 
+                        })
+                        // element.funcRecurs
+                      }
+                    } 
+                  })
+                  // element.funcRecurs
+                }
+              } 
+            })
+            // element.funcRecurs
+          }
+        } 
+      })
+      // element.funcRecurs
+    }
+  } 
+});
+console.log(...newArr);
+console.log(newArr);
+console.log(...arr);
+console.log(arr); */
 
 
 
