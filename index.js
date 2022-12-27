@@ -1,5 +1,237 @@
 'use strict'
 
+/*   ЗАДАЧА 1
+let task1 = function(number, degree) {
+  if (degree == 1) {
+    return number
+  }
+  else  {
+    return  number * task1(number, degree - 1)
+  }
+} 
+
+
+console.log(task1(2,4))
+console.log(task1(4,2))  */
+
+/* // короткая запись
+ let task1 = function(a ,b) {
+  if (b == 1) return a
+  else return a * task1(a , b -1)
+}
+console.log(task1(2,2)) */
+
+//ЗАДАЧА 2
+/*  let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+// console.log(typeof());
+let newArr = []
+
+const arrr = (element) => {
+  if (typeof element === 'number') {
+    newArr.push(element)
+  } else {
+    for (let elem of element) {
+      arrr(elem)
+    }
+  }
+}
+
+// for (let element of arr) {
+  arrr(arr)
+// };
+
+console.log(newArr); */
+
+// // ЗАДАЧА 3
+// const in10 =  ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+// const in20 = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестанадцать','семнадцать', 'восемнадцать', 'девятнадцать']
+// const in100 = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+// const in1000 = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот']
+// const in10000 = ['', 'тысяча', 'две тысячи', 'три тысячи', 'четыре тысячи', 'пять тысяч', 'шесть тысяч', 'семь тысяч', 'восемь тысяч', 'девять тысяч']
+// const in100000 = ['', 'десять тысяч', 'двадцать тысяч', 'тридцать тысяч', 'сорок тысяч', 'пятьдесят тысяч', 'шестьдесят тысяч', 'семьдесят тысяч', 'восемьдесят тысяч', 'девяносто тысяч']
+// const last100000 = ['сто тысяч']
+// // const num234 = ['две' , 'три' , "ч"]
+// // prompt("введите число от 0 до 100 000", "0")
+// let numInput = 94393
+// let arrBefore1000 = []
+// let arrOfWordsBefore1000 = []
+// let arrAfter1000 = []
+// let arrOfWordsAfter1000 = []
+// let num100 = 0
+// let num1000 = 0
+
+// const remadeToString = (numInput) => {
+//   if (numInput < 0 || numInput > 100000) {console.log("число не подходит");}
+//   else {
+//     if (numInput > 999) {
+//       num1000 = String(Math.floor((numInput / 1000)))
+//       arrAfter1000 = [...num1000]
+//       let findFuncAfter1000 = (arrNum) => {
+//           if (arrNum.length === 3) {
+//             console.log(arrNum);
+//             let a = in1000[arrNum[0]]
+//             let b = in100[arrNum[1]]
+//             let c = in10[arrNum[2]]
+//             arrOfWordsAfter1000.push(a)
+//             if (+(String(arrNum[1]) + String(arrNum[2]) ) < 20 
+//             && +(String(arrNum[1]) + String(arrNum[2]) ) > 9) {
+//                 b = (in20[arrNum[2]]);
+//                 console.log(in20[arrNum[2]]);
+//                 console.log(arrNum[0]);
+//                 if (arrNum[0]) {
+//                   console.log(arrNum[0]);
+//                 console.log("fuck");
+//               }
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else {
+//             arrOfWordsAfter1000.push(b)
+//             arrOfWordsAfter1000.push(c)
+//             }
+//           }
+//           else if (arrNum.length === 2) {
+//             let a = in100[arrNum[0]]
+//             let b = in10[arrNum[1]]
+            
+//             if (+(String(arrNum[0]) + String(arrNum[1])) <= 19 && (+(String(arrNum[0]) + String(arrNum[1])) > 9)) {
+//               b = (in20[arrNum[1]] + " тысяч");
+//               console.log(b);
+//               arrOfWordsAfter1000.push(b)
+//               console.log(arrOfWordsAfter1000);
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 0)) {
+//               b = ( in100[arrNum[0]] + in100[arrNum[1]] + " тысяч")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 1)) {
+//               b = ( in100[arrNum[0]] + " одна " + "тысяча")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 2)) {
+//               b = ( in100[arrNum[0]] + " две " + "тысячи")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) > 2) && ((+String(arrNum[1]) <= 4))) {
+//               b = ( in100[arrNum[0]] + ` ${in10[arrNum[1]]} ` + "тысячи")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && (((+String(arrNum[1])) > 4)  && ((+String(arrNum[1])) <= 9))) {
+//               b = ( in100[arrNum[0]] + ` ${in10[arrNum[1]]} ` + "тысяч")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else {
+//               arrOfWordsAfter1000.push(a)
+//               arrOfWordsAfter1000.push(b)
+//             }
+//           }
+//           else {
+//             let a = in10000[arrNum[0]]
+//             arrOfWordsAfter1000.push(a)
+//           }
+//       }
+    
+//       findFuncAfter1000(arrAfter1000)
+
+//       num100 = String(Math.floor(numInput - num1000 * 1000))
+//       arrBefore1000 = [...num100]
+//       let CopyFindFuncBefore1000 = (arrNum) => {
+//         if (arrNum.length === 3) {
+//           let a = in1000[arrNum[0]]
+//           let b = in100[arrNum[1]]
+//           let c = in10[arrNum[2]]
+//           arrOfWordsBefore1000.push(a)
+//           if (+(String(arrNum[1]) + String(arrNum[2]) ) < 20 
+//           && +(String(arrNum[1]) + String(arrNum[2]) ) > 9) {
+//             b = (in20[arrNum[2]]);
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//           arrOfWordsBefore1000.push(b)
+//           arrOfWordsBefore1000.push(c)
+//           }
+//         }
+//         else if (arrNum.length === 2) {
+//           let a = in100[arrNum[0]]
+//           let b = in10[arrNum[1]]
+//           if (+(String(arrNum[0]) + String(arrNum[1]) ) < 20 
+//           && +(String(arrNum[0]) + String(arrNum[1]) ) > 9) {
+//             b = (in20[arrNum[1]]);
+//             console.log(b);
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//             arrOfWordsBefore1000.push(a)
+//             arrOfWordsBefore1000.push(b)
+//           }
+//         }
+//         else {
+//           let a = in10[arrNum[0]]
+//           arrOfWordsBefore1000.push(a)
+//         }
+//       }
+//       CopyFindFuncBefore1000(arrBefore1000)
+//     } 
+//     else {
+//       num100 = String(Math.floor(numInput - num1000 * 1000))
+//       arrBefore1000 = [...num100]
+//       let CopyFindFuncBefore1000 = (arrNum) => {
+//         if (arrNum.length === 3) {
+//           console.log(arrNum);
+//           let a = in1000[arrNum[0]]
+//           let b = in100[arrNum[1]]
+//           let c = in10[arrNum[2]]
+//           arrOfWordsBefore1000.push(a)
+//           if (+(String(arrNum[1]) + String(arrNum[2]) ) < 20 
+//           && +(String(arrNum[1]) + String(arrNum[2]) ) > 9) {
+//             b = (in20[arrNum[2]]);
+//             console.log(arrNum[0]);
+//             if (arrNum[0] / 10 === 1) {
+//               console.log(arrNum[0]);
+//             console.log("fuck");
+//             }
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//           arrOfWordsBefore1000.push(b)
+//           arrOfWordsBefore1000.push(c)
+//           }
+//         }
+//         else if (arrNum.length === 2) {
+//           let a = in100[arrNum[0]]
+//           let b = in10[arrNum[1]]
+//           if (+(String(arrNum[0]) + String(arrNum[1]) ) < 20 
+//           && +(String(arrNum[0]) + String(arrNum[1]) ) > 9) {
+//             b = (in20[arrNum[1]]);
+//             console.log(b);
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//             arrOfWordsBefore1000.push(a)
+//             arrOfWordsBefore1000.push(b)
+//           }
+//         }
+//         else {
+//           let a = in10[arrNum[0]]
+//           arrOfWordsBefore1000.push(a)
+//         }
+//       console.log(arrNum.length);
+//       }
+//       CopyFindFuncBefore1000(arrBefore1000)
+//     }
+//     let endArr = [...arrOfWordsAfter1000, ...arrOfWordsBefore1000]; 
+//     // endArr = endArr.
+// /*     console.log(endArr);
+//     console.log(arrBefore1000);
+//     console.log(arrBefore1000 + " это массив arrBefore1000");
+//     console.log(arrAfter1000);
+//     console.log(arrAfter1000 + " это массив arrAfter1000");
+//     console.log(arrOfWordsBefore1000 + " массив куда будем складывать слова до тысячи");
+//     console.log(arrOfWordsAfter1000 + " массив куда будем складывать слова тысяч"); */
+//     console.log(endArr.join(" "));
+//   }
+// }
+
+// remadeToString(numInput)
 
 // 2.4 (1)
 /* let admin, name
@@ -1975,7 +2207,7 @@ console.log(arr); */
 
 
 
- let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
+/*  let arr = [1, 2, 3, [3, 4, [5, 6, [7, 8, [9, 10]]]],6]
 // console.log(typeof());
 let newArr = []
 
@@ -1989,13 +2221,11 @@ const arrr = (element) => {
   }
 }
 
-for (let element of arr) {
-  arrr(element)
-};
+// for (let element of arr) {
+  arrr(arr)
+// };
 
-console.log(newArr);
-
-
+console.log(newArr); */
 
 
 
@@ -2029,20 +2259,500 @@ console.log(newArr);
 
 
 
-// ЗАДАЧА 3
-/* let stringifyNumber = function(inputNumber) {
-  if (inputNumber < 0 || inputNumber > 100000) {
-    console.log("false");
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// задача 3 (здесь разбивает тысчи по цифрам в массив и сотни)
+/* const in10 =  ['', 'один ', 'два ', 'три ', 'четыре ', 'пять ', 'шесть ', 'семь ', 'восемь ', 'девять ']
+const in20 = ['десять ', 'одиннадцать', 'двенадцать ', 'тринадцать', 'четырнадцать', 'пятнадцать ', 'шестанадцать ','семнадцать ', 'восемнадцать ', 'девятнадцать ']
+const in100 = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+const in1000 = ['', 'сто', 'двести', 'тристо', 'четыресто', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот']
+const in10000 = ['', 'тысяча', 'две тысячи', 'три тысячи', 'четыре тысячи', 'пять тысяч', 'шесть тысяч', 'семь тысяч', 'восемь тысяч', 'девять тысяч']
+const in100000 = ['', 'десять тысяч', 'двадцать тысяч', 'тридцать тысяч', 'сорок тысяч', 'пятьдесят тысяч', 'шестьдесят тысяч', 'семьдесят тысяч', 'восемьдесят тысяч', 'девяносто тысяч']
+const last100000 = ['сто тысяч']
+
+// prompt("введите число от 0 до 100 000", "0")
+let numInput = 145
+let arrBefore100 = []
+let arrAfter1000 = []
+let num100 = 0
+let num1000 = 0
+const renameToString = (numInput) => {
+  if (numInput < 0 || numInput > 100000) {console.log("число не подходит");}
   else {
-    console.log(inputNumber)
+    if (numInput > 999) {
+      num1000 = String(Math.floor((numInput / 1000)))
+      arrAfter1000 = [...num1000]
+      
+      num100 = String(Math.floor(numInput - num1000 * 1000))
+      arrBefore100 = [...num100]
+    }
+    else {
+      num100 = String(Math.floor(numInput - num1000 * 1000))
+      arrBefore100 = [...num100]
+    } 
+
+
+  // arrBefore100 = [...numInput]
+  if (arrBefore100.length === 2) console.log(a);
+  // console.log(numInput + " введеное число");
+  console.log(arrAfter1000);
+  console.log(arrAfter1000 + " это массив arrAfter1000");
+  console.log(arrBefore100);
+  console.log(arrBefore100 + " это массив arrBefore100");
   }
 }
 
-stringifyNumber(2) */
+renameToString(numInput) */
+
+/* const renameToString = (numInput) => {
+    if (numInput < 0 || numInput > 100000) {
+        console.log("не подходящее число")
+    }
+    else if (numInput === "0") {console.log("нуль")}
+    else {
+        console.log(numInput)
+        let arrayOfNumInput = [...numInput].reverse()
+        let arrayOfWords = [] // ["три тысячи" , "сто", "двадцать", "два"]
+                
+        
+    }
+}
+renameToString(numInput) */
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// попытка 2
+// const in10 =  ['', 'один ', 'два ', 'три ', 'четыре ', 'пять ', 'шесть ', 'семь ', 'восемь ', 'девять ']
+// const in20 = ['десять ', 'одиннадцать', 'двенадцать ', 'тринадцать', 'четырнадцать', 'пятнадцать ', 'шестанадцать ','семнадцать ', 'восемнадцать ', 'девятнадцать ']
+// const in100 = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+// const in1000 = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот']
+// const in10000 = ['', 'тысяча', 'две тысячи', 'три тысячи', 'четыре тысячи', 'пять тысяч', 'шесть тысяч', 'семь тысяч', 'восемь тысяч', 'девять тысяч']
+// const in100000 = ['', 'десять тысяч', 'двадцать тысяч', 'тридцать тысяч', 'сорок тысяч', 'пятьдесят тысяч', 'шестьдесят тысяч', 'семьдесят тысяч', 'восемьдесят тысяч', 'девяносто тысяч']
+// const last100000 = ['сто тысяч']
+
+// // prompt("введите число от 0 до 100 000", "0")
+// let numInput = 3121
+// let arrBefore1000 = []
+// let arrOfWordsBefore1000 = []
+// let arrAfter1000 = []
+// let arrOfWordsAfter1000 = []
+// let num100 = 0
+// let num1000 = 0
+// const renameToString = (numInput) => {
+//   if (numInput < 0 || numInput > 100000) {console.log("число не подходит");}
+//   else {
+//     if (numInput > 999) {
+//       num1000 = String(Math.floor((numInput / 1000)))
+//       arrAfter1000 = [...num1000]
+      
+//       num100 = String(Math.floor(numInput - num1000 * 1000))
+//       arrBefore1000 = [...num100]
+//     }
+//     else {
+//       // console.log("тут меньше 1000");
+//       num100 = String(Math.floor(numInput - num1000 * 1000))
+//       arrBefore1000 = [...num100]
+//      /*  let qwe = (arrNum) => 
+//         {for (let i = 1; i <= arrNum.length; i++)  
+//           {
+//             if (arrNum[i] === arrBefore1000) {
+//               arrNum.push(in10[i])
+//               console.log(typeof(in10[i]));
+//               console.log(Array.prototype.indexOf(in10[i]));
+//             }
+//           }
+//         console.log(arrOfWordsBefore1000);
+//       }  */
+//       let findFunc = (arrNum) => {
+// /*         if (arrNum === arrBefore1000) {
+//           let cloneArrNumLength = arrNum.length
+//           for (let i = 0; i < 3; i++) {
+//               console.log(i);
+//             }
+
+//           if (arrNum.length === 3) {
+//            if (arrNum[0]) {
+//             console.log(arrNum[0]);
+//             arrOfWordsBefore1000.push(in1000[cloneArrNumLength])
+//           }
+//             console.log(arrNum);
+//             // if (typeof(arrNum[1]) === "number") {}
+//             console.log(cloneArrNumLength);
+//             console.log(arrNum[2] + " вывод значения под индексом 2");
+//             console.log(typeof(arrNum[2]));
+//           }
+//           else if (arrNum.length === 2) {
+//             console.log("fuck");
+//           }
+//           else {
+//             console.log("another fuck");
+//           }
+//         } else if (arrNum === arrAfter1000) {
+//           console.log("this for 1000");
+//         }
+//       } */
+//       findFunc(arrBefore1000)
+//       // findFunc(arrAfter1000)
+//     } 
+    
+//     // for (let i = 0; i < 3; i++) {
+//     //   console.log(i);
+//     // }
+    
+//     console.log(arrBefore1000);
+//     console.log(arrBefore1000 + " это массив arrBefore1000");
+//     console.log(arrAfter1000);
+//     console.log(arrAfter1000 + " это массив arrAfter1000");
+//     console.log(arrOfWordsBefore1000 + " массив куда будем складывать слова");
+//   }
+// }
+
+// renameToString(numInput)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ВЫВОДИТ В БУКВЕННОМ, НЕ ХВАТАЕТ (ТЫСЯЧА, ДВЕ ТЫСЯЧИ, ТРИ ТЫСЯЧИ, ЧЕТЫРЕ ТЫСЯЧИ)
+// ПОЧТИ ГОТОВО
+
+
+// const in10 =  ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+// const in20 = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестанадцать','семнадцать', 'восемнадцать', 'девятнадцать']
+// const in100 = ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+// const in1000 = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот']
+// const in10000 = ['', 'тысяча', 'две тысячи', 'три тысячи', 'четыре тысячи', 'пять тысяч', 'шесть тысяч', 'семь тысяч', 'восемь тысяч', 'девять тысяч']
+// const in100000 = ['', 'десять тысяч', 'двадцать тысяч', 'тридцать тысяч', 'сорок тысяч', 'пятьдесят тысяч', 'шестьдесят тысяч', 'семьдесят тысяч', 'восемьдесят тысяч', 'девяносто тысяч']
+// const last100000 = ['сто тысяч']
+// // const num234 = ['две' , 'три' , "ч"]
+// // prompt("введите число от 0 до 100 000", "0")
+// let numInput = 94393
+// let arrBefore1000 = []
+// let arrOfWordsBefore1000 = []
+// let arrAfter1000 = []
+// let arrOfWordsAfter1000 = []
+// let num100 = 0
+// let num1000 = 0
+
+// const remadeToString = (numInput) => {
+//   if (numInput < 0 || numInput > 100000) {console.log("число не подходит");}
+//   else {
+//     if (numInput > 999) {
+//       num1000 = String(Math.floor((numInput / 1000)))
+//       arrAfter1000 = [...num1000]
+//       let findFuncAfter1000 = (arrNum) => {
+//           if (arrNum.length === 3) {
+//             console.log(arrNum);
+//             let a = in1000[arrNum[0]]
+//             let b = in100[arrNum[1]]
+//             let c = in10[arrNum[2]]
+//             arrOfWordsAfter1000.push(a)
+//             if (+(String(arrNum[1]) + String(arrNum[2]) ) < 20 
+//             && +(String(arrNum[1]) + String(arrNum[2]) ) > 9) {
+//                 b = (in20[arrNum[2]]);
+//                 console.log(in20[arrNum[2]]);
+//                 console.log(arrNum[0]);
+//                 if (arrNum[0]) {
+//                   console.log(arrNum[0]);
+//                 console.log("fuck");
+//               }
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else {
+//             arrOfWordsAfter1000.push(b)
+//             arrOfWordsAfter1000.push(c)
+//             }
+//           }
+//           else if (arrNum.length === 2) {
+//             let a = in100[arrNum[0]]
+//             let b = in10[arrNum[1]]
+            
+//             if (+(String(arrNum[0]) + String(arrNum[1])) <= 19 && (+(String(arrNum[0]) + String(arrNum[1])) > 9)) {
+//               b = (in20[arrNum[1]] + " тысяч");
+//               console.log(b);
+//               arrOfWordsAfter1000.push(b)
+//               console.log(arrOfWordsAfter1000);
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 0)) {
+//               b = ( in100[arrNum[0]] + in100[arrNum[1]] + " тысяч")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 1)) {
+//               b = ( in100[arrNum[0]] + " одна " + "тысяча")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 2)) {
+//               b = ( in100[arrNum[0]] + " две " + "тысячи")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) > 2) && ((+String(arrNum[1]) <= 4))) {
+//               b = ( in100[arrNum[0]] + ` ${in10[arrNum[1]]} ` + "тысячи")
+//               arrOfWordsAfter1000.push(b)
+//             }
+// /*             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 3)) {
+//               b = ( in100[arrNum[0]] + " три " + "тысячи")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && ((+String(arrNum[1])) === 4)) {
+//               b = ( in100[arrNum[0]] + " четыре " + "тысячи")
+//               arrOfWordsAfter1000.push(b)
+//             } */
+//             else if ((+String(arrNum[0]) > 1 && +String(arrNum[0]) <= 9) && (((+String(arrNum[1])) > 4)  && ((+String(arrNum[1])) <= 9))) {
+//               b = ( in100[arrNum[0]] + ` ${in10[arrNum[1]]} ` + "тысяч")
+//               arrOfWordsAfter1000.push(b)
+//             }
+//             else {
+//               arrOfWordsAfter1000.push(a)
+//               arrOfWordsAfter1000.push(b)
+//             }
+//           }
+//           else {
+//             let a = in10000[arrNum[0]]
+//             arrOfWordsAfter1000.push(a)
+//           }
+//         // console.log(arrNum.length);
+
+//         // if (+String(arrAfter1000[0]) ) {}
+//         // console.log(arrAfter1000[0]);
+//       }
+    
+//       findFuncAfter1000(arrAfter1000)
+
+//       num100 = String(Math.floor(numInput - num1000 * 1000))
+//       arrBefore1000 = [...num100]
+//       let CopyFindFuncBefore1000 = (arrNum) => {
+//         if (arrNum.length === 3) {
+//           // console.log(arrNum);
+//           let a = in1000[arrNum[0]]
+//           let b = in100[arrNum[1]]
+//           let c = in10[arrNum[2]]
+//           arrOfWordsBefore1000.push(a)
+//           if (+(String(arrNum[1]) + String(arrNum[2]) ) < 20 
+//           && +(String(arrNum[1]) + String(arrNum[2]) ) > 9) {
+//             b = (in20[arrNum[2]]);
+//             // console.log(in20[arrNum[2]]);
+//             // console.log(arrNum[0]);
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//           arrOfWordsBefore1000.push(b)
+//           arrOfWordsBefore1000.push(c)
+//           }
+//         }
+//         else if (arrNum.length === 2) {
+//           let a = in100[arrNum[0]]
+//           let b = in10[arrNum[1]]
+//           if (+(String(arrNum[0]) + String(arrNum[1]) ) < 20 
+//           && +(String(arrNum[0]) + String(arrNum[1]) ) > 9) {
+//             b = (in20[arrNum[1]]);
+//             console.log(b);
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//             arrOfWordsBefore1000.push(a)
+//             arrOfWordsBefore1000.push(b)
+//           }
+//         }
+//         else {
+//           let a = in10[arrNum[0]]
+//           arrOfWordsBefore1000.push(a)
+//         }
+//       // console.log(arrNum.length);
+//       }
+//       CopyFindFuncBefore1000(arrBefore1000)
+//     } 
+//     else {
+//       // console.log("тут если число изначально меньше 1000");
+//       num100 = String(Math.floor(numInput - num1000 * 1000))
+//       arrBefore1000 = [...num100]
+//       let CopyFindFuncBefore1000 = (arrNum) => {
+//         if (arrNum.length === 3) {
+//           console.log(arrNum);
+//           let a = in1000[arrNum[0]]
+//           let b = in100[arrNum[1]]
+//           let c = in10[arrNum[2]]
+//           arrOfWordsBefore1000.push(a)
+//           if (+(String(arrNum[1]) + String(arrNum[2]) ) < 20 
+//           && +(String(arrNum[1]) + String(arrNum[2]) ) > 9) {
+//             b = (in20[arrNum[2]]);
+//             // console.log(in20[arrNum[2]]);
+//             console.log(arrNum[0]);
+//             if (arrNum[0] / 10 === 1) {
+//               console.log(arrNum[0]);
+//             console.log("fuck");
+//             }
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//           arrOfWordsBefore1000.push(b)
+//           arrOfWordsBefore1000.push(c)
+//           }
+//         }
+//         else if (arrNum.length === 2) {
+//           let a = in100[arrNum[0]]
+//           let b = in10[arrNum[1]]
+//           if (+(String(arrNum[0]) + String(arrNum[1]) ) < 20 
+//           && +(String(arrNum[0]) + String(arrNum[1]) ) > 9) {
+//             b = (in20[arrNum[1]]);
+//             console.log(b);
+//             arrOfWordsBefore1000.push(b)
+//           } 
+//           else {
+//             arrOfWordsBefore1000.push(a)
+//             arrOfWordsBefore1000.push(b)
+//           }
+//         }
+//         else {
+//           let a = in10[arrNum[0]]
+//           arrOfWordsBefore1000.push(a)
+//         }
+//       console.log(arrNum.length);
+//       }
+//       CopyFindFuncBefore1000(arrBefore1000)
+//     }
+//     let endArr = [...arrOfWordsAfter1000, ...arrOfWordsBefore1000]; 
+//     // endArr = endArr.
+// /*     console.log(endArr);
+//     console.log(arrBefore1000);
+//     console.log(arrBefore1000 + " это массив arrBefore1000");
+//     console.log(arrAfter1000);
+//     console.log(arrAfter1000 + " это массив arrAfter1000");
+//     console.log(arrOfWordsBefore1000 + " массив куда будем складывать слова до тысячи");
+//     console.log(arrOfWordsAfter1000 + " массив куда будем складывать слова тысяч"); */
+//     console.log(endArr.join(" "));
+//   }
+// }
+
+// remadeToString(numInput)
+
+
+
+
+
+// Готовая функци перебора ви вывода массива из слов для до 1000
+// findFunc = (arrNum) => {
+//   if (arrNum.length === 3) {
+//     console.log(arrNum);
+
+//     let a = in1000[arrNum[0]]
+//     let b = in100[arrNum[1]]
+//     let c = in10[arrNum[2]]
+//     arrOfWordsBefore1000.push(a)
+//     if (+(String(arrNum[1]) + String(arrNum[2]) ) < 20 
+//     && +(String(arrNum[1]) + String(arrNum[2]) ) > 9) {
+//       b = (in20[arrNum[2]]);
+//       arrOfWordsBefore1000.push(b)
+//       // console.log(in20[7]);
+//     } else {
+//     arrOfWordsBefore1000.push(b)
+//     arrOfWordsBefore1000.push(c)
+//     }
+// /*             console.log(a);
+//     console.log(b);
+//     console.log(c); */
+//     // console.log(in1000[arrNum[0]]);
+//   }
+//     else if (arrNum.length === 2) {
+//       let a = in100[arrNum[0]]
+//       let b = in10[arrNum[1]]
+//       if (+(String(arrNum[0]) + String(arrNum[1]) ) < 20 
+//       && +(String(arrNum[0]) + String(arrNum[1]) ) > 9) {
+//         b = (in20[arrNum[1]]);
+//         arrOfWordsBefore1000.push(b)
+//         // console.log(in20[7]);
+//       } else {
+//         arrOfWordsBefore1000.push(a)
+//         arrOfWordsBefore1000.push(b)
+//       }
+//     }
+//     else {
+//       let a = in10[arrNum[0]]
+//       arrOfWordsBefore1000.push(a)
+//     }
+//   console.log(arrNum.length);
+// }
+// findFunc(arrBefore1000)
 
 
 
