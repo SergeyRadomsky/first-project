@@ -25,34 +25,18 @@ elem.classList.contains("class") – проверка наличия класс�
 const qwe = document.getElementById("btn-alert")
 qwe.addEventListener("click", () => console.log("Уря!")) 
 
-// ЗАДАЧА 2
+// ЗАДАЧА 2/3
 const formika = document.getElementById("input-id") 
-// formika.addEventListener("focusout" , () => console.log("вы потеряли фокус"))
-// console.log(formika.innerHTML);
+formika.addEventListener("focusout" , () => console.log("вы потеряли фокус"))
 let btnQ = document.getElementById("btn-input")
-// let x = formika.value
 
-function func_on_click() {
-  let x = document.getElementById('input-id').value
-  btnQ = x
-}
-btnQ.onclick = () => {
-  func_on_click()
-}
+btnQ.addEventListener("click",function(event) {
+  event.preventDefault()
+  btnQ.innerHTML = formika.value
+  console.log(formika.innerText);
+  console.log(formika.innerText)}
+  )
 
-
-// console.log(x);
-// ЗАДАЧА 3
-
-// let formika_Text = formika.value
-// console.log(btnQ.innerHTML);
-// console.log(formika_Text);
-// btnQ.onclick(btnQ.innerHTML = formika_Text)
-
-
-// btnQ.innerHTML = formika_Text
-
-// console.log(formika_Text)
 
 
 
